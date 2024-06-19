@@ -1,3 +1,5 @@
+import type { SearchResult } from "../../type";
+
 export async function ProductSearchResults({
   query,
 }: {
@@ -24,13 +26,3 @@ async function fetchProducts(query: string) {
     (res) => res.json() as Promise<SearchResult>,
   );
 }
-
-type Product = {
-  id: string;
-  title: string;
-  category: string;
-};
-
-type SearchResult = {
-  products: Product[];
-};

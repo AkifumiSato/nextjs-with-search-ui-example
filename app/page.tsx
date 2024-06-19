@@ -1,26 +1,17 @@
-import { Suspense } from "react";
-import { ProductSearchResults } from "./_components/product-search-results";
-import { Search } from "./_components/search";
+import Link from "next/link";
 
-export default async function Page({
-  searchParams,
-}: {
-  searchParams?: {
-    query?: string;
-    page?: string;
-  };
-}) {
-  const query = searchParams?.query;
+export default async function Page() {
   return (
     <>
       <h1>Hello, Search UI</h1>
-      <Search />
-      {query && (
-        <Suspense key={query} fallback={<div>Loading...</div>}>
-          <ProductSearchResults query={query} />
-        </Suspense>
-      )}
-      {!query && <p>Enter a search term to see results.</p>}
+      <ul>
+        <li>
+          <Link href="/url-bind">/url-bind</Link>
+        </li>
+        <li>
+          <Link href="/server-action">/server-action</Link>
+        </li>
+      </ul>
     </>
   );
 }
